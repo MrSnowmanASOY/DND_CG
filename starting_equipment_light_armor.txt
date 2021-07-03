@@ -1,0 +1,3 @@
+padded AC=11+dex (disadvantage on stealth)
+leather AC=11+dex
+studded AC=leather 12+dex

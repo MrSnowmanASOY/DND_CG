@@ -1,0 +1,5 @@
+hide AC=12+dex
+chain shirt AC=13+dex
+scale mail AC=14+dex (disadvantage on stealth)
+breastplate AC=14+dex
+half plate AC=15+dex (disadvantage on stealth)
