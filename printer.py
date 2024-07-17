@@ -11,6 +11,14 @@ print("According to this the file is located at directory " + cwd)
 print("Hope thats correct...")
 os. chdir(cwd)
 
+
+class tcolors:
+  WARNING = '\033[93m'
+  BOLD = '\033[1m'
+  UNDERLINE = '\033[4m'
+  ENDC = '\033[0m'
+  FAIL = '\033[91m'
+
 typing_speed0 = 500 #wpm
 def slow_type0(t):
     for l in t:
@@ -145,6 +153,13 @@ def get_number_input(msg, range=None, default=0):
 
 def generator():
   gender = input("What gender is your character? (F or m): ") # selecting the gender
+  if gender.lower().startswith("m"):
+    gender = "m"
+  elif gender.lower().startswith("f"):
+    gender = "f"
+  else:
+    gender = "Truncation Error"
+
   aogct = get_number_input(
     "How many good character traits do you want your character to have? (Def:0) (0 - 21) (1 good trait = +2 bad traits) (Rec:5): ",
     (0, 21)
@@ -212,9 +227,13 @@ def generator():
     print("Coming up with names for females...")
     time.sleep(0.01)
   else:
-    print("Error Retreiving Gender Selection")
-    print("Defaulting to Female")
-    time.sleep(5.00)
+    print(tcolors.WARNING + "Error Retreiving Gender Selection" + tcolors.ENDC)
+    print(tcolors.WARNING + gender + tcolors.ENDC)
+    print(tcolors.WARNING + "Defaulting to Female" + tcolors.ENDC)
+    time.sleep(3.00)
+    gender = "f"
+    f_names = open('Female_Names').read().splitlines()              #Coming up with names for females
+    print("Coming up with names for females...")
 
   l_names = open('Last_Names').read().splitlines()                #Thinking of last names
   print("Thinking of last names...")
@@ -279,8 +298,10 @@ def generator():
     print("Choosing an okay female name...")
     time.sleep(0.01)
   else:
-    print("Error Retreiving Chosen Gender")
-    print("Defaulting to Female")
+    print(tcolors.FAIL + "Error Retreiving Chosen Gender" + tcolors.ENDC)
+    print(tcolors.FAIL + gender + tcolors.ENDC)
+    print(tcolors.FAIL + "Defaulting to Female" + tcolors.ENDC)
+    fn = random.choice(f_names) 
     time.sleep(5.00)
 
 
