@@ -5,6 +5,12 @@ import sys
 import logging
 import time
 
+print("Locating Current Working Directory")
+cwd = os.path.dirname(os.path.realpath(__file__))
+print("According to this the file is located at directory " + cwd)
+print("Hope thats correct...")
+os. chdir(cwd)
+
 typing_speed0 = 500 #wpm
 def slow_type0(t):
     for l in t:
@@ -91,15 +97,16 @@ except IOError:
     print(" ")
     slow_type1("File Missing...")
     print(" ")
-    slow_type1("Stopping operation...")
+    slow_type1("Errors may occur...")
     time.sleep(2)
-    sys.exit()
 finally:
     file_check.close()
 
-slow_type3("▇▇▇▇▇")
+slow_type3("▇▇▇▇")
 
-slow_type4("▇▇▇▇▇▇▇▇▇ ] Done")
+slow_type4("▇▇▇▇▇▇▇▇▇] Done")
+print(" ")
+print("Good luck Adventurer!")
 print(" ")
 print(" ")
 print(" ")
@@ -136,7 +143,7 @@ def get_number_input(msg, range=None, default=0):
     except:
       pass
 
-def genorator():
+def generator():
   gender = input("What gender is your character? (F or m): ") # selecting the gender
   aogct = get_number_input(
     "How many good character traits do you want your character to have? (Def:0) (0 - 21) (1 good trait = +2 bad traits) (Rec:5): ",
@@ -194,12 +201,21 @@ def genorator():
   instaled_languages = open('languages').read().splitlines()      #Studying languages
   print("Studying languages...")
   time.sleep(0.01)
-  m_names = open('Male_Names').read().splitlines()                #Coming up with names for males
-  print("Coming up with names for males...")
-  time.sleep(0.01)
-  f_names = open('Female_Names').read().splitlines()              #Coming up with names for females
-  print("Coming up with names for females...")
-  time.sleep(0.01)
+
+  
+  if gender == 'm':
+    m_names = open('Male_Names').read().splitlines()                #Coming up with names for males
+    print("Coming up with names for males...")
+    time.sleep(0.01)
+  elif gender == 'f':
+    f_names = open('Female_Names').read().splitlines()              #Coming up with names for females
+    print("Coming up with names for females...")
+    time.sleep(0.01)
+  else:
+    print("Error Retreiving Gender Selection")
+    print("Defaulting to Female")
+    time.sleep(5.00)
+
   l_names = open('Last_Names').read().splitlines()                #Thinking of last names
   print("Thinking of last names...")
   time.sleep(0.01)
@@ -253,12 +269,21 @@ def genorator():
 
   print("Creating racism...")
   time.sleep(0.01)
-  mn = random.choice(m_names)                                     #Choosing cool male name
-  print("Choosing cool male name...")
-  time.sleep(0.01)
-  fn = random.choice(f_names)                                     #Choosing an okay female name
-  print("Choosing an okay female name...")
-  time.sleep(0.01)
+
+  if gender == 'm':
+    mn = random.choice(m_names)                                     #Choosing cool male name
+    print("Choosing cool male name...")
+    time.sleep(0.01)
+  elif gender == 'f':
+    fn = random.choice(f_names)                                     #Choosing an okay female name
+    print("Choosing an okay female name...")
+    time.sleep(0.01)
+  else:
+    print("Error Retreiving Chosen Gender")
+    print("Defaulting to Female")
+    time.sleep(5.00)
+
+
   ln = random.choice(l_names)                                     #Picking an epic last name
   print("Picking an epic last name...")
   time.sleep(0.01)
@@ -442,21 +467,21 @@ def genorator():
 
   # Giving the character Languages
   if cr == 'Dwarf':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,99,10,5,10,10,10,10,5,5,5,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,100,10,5,10,10,10,10,5,5,5,5,5,5,5,5), k=4)
   if cr == 'Elf':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,99,5,10,10,10,10,5,5,5,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,100,5,10,10,10,10,5,5,5,5,5,5,5,5), k=4)
   if cr == 'Halfling':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,99,10,5,5,5,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,100,10,5,5,5,5,5,5,5,5), k=4)
   if cr == 'Human':
     Spoken_Languages = random.choices(instaled_languages, weights=(100,30,30,10,30,30,30,30,10,10,10,10,10,10,10,10), k=4)
   if cr == 'Dragonborn':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,10,10,5,5,99,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,10,10,5,5,100,5,5,5,5,5), k=4)
   if cr == 'Gnome':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,99,10,10,10,5,5,5,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,100,10,10,10,5,5,5,5,5,5,5,5), k=4)
   if cr == 'Half-Elf':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,99,10,5,5,5,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,100,10,5,5,5,5,5,5,5,5), k=4)
   if cr == 'Half-Orc':
-    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,99,5,10,10,10,10,5,5,5,5,5,5,5,5), k=4)
+    Spoken_Languages = random.choices(instaled_languages, weights=(100,10,100,5,10,10,10,10,5,5,5,5,5,5,5,5), k=4)
   if cr == 'Tiefling':
     Spoken_Languages = random.choices(instaled_languages, weights=(100,10,10,5,10,10,10,10,5,5,5,5,80,5,5,5), k=4)
 
@@ -698,6 +723,9 @@ def genorator():
   pp = 10 + wis_m
   armor_class = 10 + dex_m
 
+  """
+  want to make a system here that checks ability rolls for more than one 9 or <
+  """
 
 
   print("")
@@ -728,7 +756,7 @@ def genorator():
   print("Character height: " + str(height))
   print("Character age: " + str(age))
   print("Eye colour: " + (chos_eye_colour))
-  print("Initiative: " + str(dex_m))
+  print("Initiative: +" + str(dex_m))
   print("Movment speed: 30")
   print("Spoken Languages: " + str(Spoken_Languages))
   print("Hair style: " + str(chr_hair_style))
@@ -816,4 +844,4 @@ def genorator():
 
 
 while True:
-  genorator()
+  generator()
