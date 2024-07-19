@@ -73,36 +73,36 @@ slow_type1("Initializing System: [")
 time.sleep(1)
 slow_type2("▇▇")
 try:
-    file_check = open("assets/equipment/adventuring_gear")
-    file_check = open("assets/equipment/breath_weapons")
-    file_check = open("assets/equipment/martial_melee_weapons")
-    file_check = open("assets/equipment/martial_ranged_weapons")
-    file_check = open("assets/equipment/simple_melee_weapons")
-    file_check = open("assets/equipment/simple_ranged_weapons")
-    file_check = open("assets/equipment/starting_equipment_heavy_armor")
-    file_check = open("assets/equipment/starting_equipment_light_armor.txt")
-    file_check = open("assets/equipment/starting_equipment_medium_armor")
-    file_check = open("assets/equipment/starting_equipment_shield")
-    file_check = open("assets/equipment/wiz_spells")
-    file_check = open("assets/equipment/wiz_cantrips")
-    file_check = open("assets/char_details/ages")
-    file_check = open("assets/char_details/alignment")
-    file_check = open("assets/char_details/classes")
-    file_check = open("assets/char_details/flaws")
-    file_check = open("assets/char_details/good_traits")
-    file_check = open("assets/char_details/languages")
-    file_check = open("assets/char_details/Lifestyle_Expenses")
-    file_check = open("assets/char_details/Races")
-    file_check = open("assets/char_details/body/Fantasy_eye_colours")
-    file_check = open("assets/char_details/body/hair_styles")
-    file_check = open("assets/char_details/body/skin_styles")
-    file_check = open("assets/char_details/body/skin_tone")
-    file_check = open("assets/char_details/body/True_eye_colours")
-    file_check = open("assets/char_details/dragonborns/draconic_ancestrys")
-    file_check = open("assets/char_details/dragonborns/skin_style_drag")
-    file_check = open("assets/char_details/naming/Female_Names")
-    file_check = open("assets/char_details/naming/Last_Names")
-    file_check = open("assets/char_details/naming/Male_Names")
+    file_check = open("assets/text/equipment/adventuring_gear")
+    file_check = open("assets/text/equipment/breath_weapons")
+    file_check = open("assets/text/equipment/martial_melee_weapons")
+    file_check = open("assets/text/equipment/martial_ranged_weapons")
+    file_check = open("assets/text/equipment/simple_melee_weapons")
+    file_check = open("assets/text/equipment/simple_ranged_weapons")
+    file_check = open("assets/text/equipment/starting_equipment_heavy_armor")
+    file_check = open("assets/text/equipment/starting_equipment_light_armor.txt")
+    file_check = open("assets/text/equipment/starting_equipment_medium_armor")
+    file_check = open("assets/text/equipment/starting_equipment_shield")
+    file_check = open("assets/text/equipment/wiz_spells")
+    file_check = open("assets/text/equipment/wiz_cantrips")
+    file_check = open("assets/text/char_details/ages")
+    file_check = open("assets/text/char_details/alignment")
+    file_check = open("assets/text/char_details/classes")
+    file_check = open("assets/text/char_details/flaws")
+    file_check = open("assets/text/char_details/good_traits")
+    file_check = open("assets/text/char_details/languages")
+    file_check = open("assets/text/char_details/Lifestyle_Expenses")
+    file_check = open("assets/text/char_details/Races")
+    file_check = open("assets/text/char_details/body/Fantasy_eye_colours")
+    file_check = open("assets/text/char_details/body/hair_styles")
+    file_check = open("assets/text/char_details/body/skin_styles")
+    file_check = open("assets/text/char_details/body/skin_tone")
+    file_check = open("assets/text/char_details/body/True_eye_colours")
+    file_check = open("assets/text/char_details/dragonborns/draconic_ancestrys")
+    file_check = open("assets/text/char_details/dragonborns/skin_style_drag")
+    file_check = open("assets/text/char_details/naming/Female_Names")
+    file_check = open("assets/text/char_details/naming/Last_Names")
+    file_check = open("assets/text/char_details/naming/Male_Names")
 except IOError:
     print(" ")
     slow_type1("File Missing...")
@@ -171,7 +171,7 @@ def generator():
   if give_align == 'n':
     pass
   else:
-    alignment_cho = open('assets/char_details/alignment').read().splitlines()           #Having a crisis
+    alignment_cho = open('assets/text/char_details/alignment').read().splitlines()           #Having a crisis
     print("Having a crisis...")
     time.sleep(0.01)
     rand_align = input("Would you like the alignment to be random? (Y/n): ")
@@ -193,12 +193,12 @@ def generator():
       print("Decided on " + chos_alignment)
   pick_real_eyes = input("Would you like your eye colour to be realistic? (y/N): ")
   if pick_real_eyes == 'y':
-    eye_options = open('assets/char_details/body/True_eye_colours').read().splitlines()          #Coming up with normal eye colours
+    eye_options = open('assets/text/char_details/body/True_eye_colours').read().splitlines()          #Coming up with normal eye colours
     print("Coming up with normal eye colours...")
     chos_eye_colour = random.choice(eye_options)
     time.sleep(0.01)
   else:
-    eye_options = open('assets/char_details/body/Fantasy_eye_colours').read().splitlines()          #Coming up with obscure eye colours
+    eye_options = open('assets/text/char_details/body/Fantasy_eye_colours').read().splitlines()          #Coming up with obscure eye colours
     print("Coming up with obscure eye colours...")
     chos_eye_colour = random.choice(eye_options)
     time.sleep(0.01)
@@ -207,25 +207,25 @@ def generator():
 
 
   # importing files
-  skin_choice_texture_drag = open('assets/char_details/dragonborns/skin_style_drag').read().splitlines()   #Taking notes on dragonborns...
+  skin_choice_texture_drag = open('assets/text/char_details/dragonborns/skin_style_drag').read().splitlines()   #Taking notes on dragonborns...
   print("Taking notes on dragonborns...")
-  skin_choice_colour = open('assets/char_details/body/skin_tone').read().splitlines()      #Looking at people
+  skin_choice_colour = open('assets/text/char_details/body/skin_tone').read().splitlines()      #Looking at people
   print("Looking at people...")
   time.sleep(0.01)
-  skin_choice_texture = open('assets/char_details/body/skin_styles').read().splitlines()   #Feeling people
+  skin_choice_texture = open('assets/text/char_details/body/skin_styles').read().splitlines()   #Feeling people
   print("Feeling people...")
   time.sleep(0.01)
-  instaled_languages = open('assets/char_details/languages').read().splitlines()      #Studying languages
+  instaled_languages = open('assets/text/char_details/languages').read().splitlines()      #Studying languages
   print("Studying languages...")
   time.sleep(0.01)
 
   
   if gender == 'm':
-    m_names = open('assets/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
+    m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
     print("Coming up with names for males...")
     time.sleep(0.01)
   elif gender == 'f':
-    f_names = open('assets/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
+    f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
     print("Coming up with names for females...")
     time.sleep(0.01)
   else:
@@ -236,46 +236,46 @@ def generator():
     gender = random.randint(0,1)
     if gender == 0:
       gender = 'm'
-      m_names = open('assets/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
+      m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
       print("Coming up with names for males...")
       time.sleep(0.01)
     elif gender == 1:
       gender = 'f'
-      f_names = open('assets/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
+      f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
       print("Coming up with names for females...")
       time.sleep(0.01)
 
-  l_names = open('assets/char_details/naming/Last_Names').read().splitlines()                #Thinking of last names
+  l_names = open('assets/text/char_details/naming/Last_Names').read().splitlines()                #Thinking of last names
   print("Thinking of last names...")
   time.sleep(0.01)
-  c_races = open('assets/char_details/Races').read().splitlines()                     #Looking up the list of races
+  c_races = open('assets/text/char_details/Races').read().splitlines()                     #Looking up the list of races
   print("Looking up the list of races...")
   time.sleep(0.01)
-  s_m_w = open('assets/equipment/simple_melee_weapons').read().splitlines()        #Hand crafting the simple melee weapons
+  s_m_w = open('assets/text/equipment/simple_melee_weapons').read().splitlines()        #Hand crafting the simple melee weapons
   print("Hand crafting the simple melee weapons...")
   time.sleep(0.01)
-  s_r_w = open('assets/equipment/simple_melee_weapons').read().splitlines()        #Dusting off the simple ranged weapons
+  s_r_w = open('assets/text/equipment/simple_melee_weapons').read().splitlines()        #Dusting off the simple ranged weapons
   print("Dusting off the simple ranged weapons...")
   time.sleep(0.01)
-  m_m_w = open('assets/equipment/simple_melee_weapons').read().splitlines()        #Forging a few martial melee weapons
+  m_m_w = open('assets/text/equipment/simple_melee_weapons').read().splitlines()        #Forging a few martial melee weapons
   print("Forging a few martial melee weapons...")
   time.sleep(0.01)
-  m_r_w = open('assets/equipment/simple_melee_weapons').read().splitlines()        #Purchasing some martial ranged weapons
+  m_r_w = open('assets/text/equipment/simple_melee_weapons').read().splitlines()        #Purchasing some martial ranged weapons
   print("Purchasing some martial ranged weapons...")
   time.sleep(0.01)
-  DAs = open('assets/char_details/dragonborns/draconic_ancestrys').read().splitlines()            #Reading up on some draconic ancestry
+  DAs = open('assets/text/char_details/dragonborns/draconic_ancestrys').read().splitlines()            #Reading up on some draconic ancestry
   print("Reading up on some draconic ancestry...")
   time.sleep(0.01)
-  BWs = open('assets/equipment/breath_weapons').read().splitlines()                #Reading up on the breath weapons
+  BWs = open('assets/text/equipment/breath_weapons').read().splitlines()                #Reading up on the breath weapons
   print("Reading up on the breath weapons...")
   time.sleep(0.01)
-  LsE_cho = open('assets/char_details/Lifestyle_Expenses').read().splitlines()        #Giving Lifestyle choices to pick from 
+  LsE_cho = open('assets/text/char_details/Lifestyle_Expenses').read().splitlines()        #Giving Lifestyle choices to pick from 
   print("Giving Lifestyle choices to pick from ...")
   time.sleep(0.01)
-  class_cho = open('assets/char_details/classes').read().splitlines()                 #Reading the classes list
+  class_cho = open('assets/text/char_details/classes').read().splitlines()                 #Reading the classes list
   print("Reading the classes list...")
   time.sleep(0.01)
-  hair_styles = open('assets/char_details/body/hair_styles').read().splitlines()           #Coming up with hair styles
+  hair_styles = open('assets/text/char_details/body/hair_styles').read().splitlines()           #Coming up with hair styles
   print("Coming up with hair styles...")
   time.sleep(0.01)
 
@@ -356,10 +356,10 @@ def generator():
     time.sleep(0.01)
     true_hair_colours = input("Would you like your hair to be realistic colours? (y/N): ")
     if true_hair_colours == 'y':
-      hair_colour = open('assets/char_details/body/True_eye_colours').read().splitlines()
+      hair_colour = open('assets/text/char_details/body/True_eye_colours').read().splitlines()
       chr_hair_colour = random.choice(hair_colour)                  #Setting the hair colour
     else:
-      hair_colour = open('assets/char_details/body/Fantasy_eye_colours').read().splitlines()           #Coming up with hair styles
+      hair_colour = open('assets/text/char_details/body/Fantasy_eye_colours').read().splitlines()           #Coming up with hair styles
       print("Coming up with hair styles...")
       chr_hair_colour = random.choice(hair_colour)                  #Setting the hair colour
 
@@ -430,10 +430,10 @@ def generator():
 
   #Wizard stuff
   if init_plr_cls == 'Wizard':
-    opt_cantrips = open('assets/equipment/wiz_cantrips').read().splitlines()                #Reading wizard cantrips
+    opt_cantrips = open('assets/text/equipment/wiz_cantrips').read().splitlines()                #Reading wizard cantrips
     print("Reading wizard cantrips...")
     time.sleep(0.01)
-    opt_spells = open('assets/equipment/wiz_spells').read().splitlines()                #Reading wizard spells
+    opt_spells = open('assets/text/equipment/wiz_spells').read().splitlines()                #Reading wizard spells
     print("Reading wizard spells...")
     time.sleep(0.01)
     cantrips = 3
@@ -704,7 +704,7 @@ def generator():
   # Finding good character traits
   if aogct != 0:
 
-    good_character_traits = open("assets/char_details/good_traits", "r")
+    good_character_traits = open("assets/text/char_details/good_traits", "r")
     goodtraitslist = []
 
     for line in good_character_traits:
@@ -724,7 +724,7 @@ def generator():
     gct = "".join(rand_valu).rstrip("\n")
 
     # Finding bad character traits
-    flaw = open("assets/char_details/flaws", "r")
+    flaw = open("assets/text/char_details/flaws", "r")
 
     flawslist = []
 
