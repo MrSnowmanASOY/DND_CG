@@ -298,6 +298,78 @@ def generator():
   # cr = "Half-Orc"                                               # Only Half-Orc
   # cr = "Tiefling"                                               # Only Tiefling
 
+  """
+  Needed Additions Based on Race:
+  Dragon Borns:
+  Dragon Borns Have a damage resistance based on their ancestory
+
+  Dwarfs:
+  2 Subraces (Mountain, Hill)
+  Dark Vision
+  Dwarven Resilience: advantage on saving throws against poison, and you have resistance against poison damage
+  Dwarven Combat Training: proficiency with the battleaxe, handaxe, light hammer, and warhammer
+  Tool Proficiency: Proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools
+  Stonecunning: Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus
+  (Mountain Dwarf) Dwarven Armor Training: Proficiency with light and medium armor
+  (Hill Dwarf) Dwarven Toughness: Your hit point maximum increases by 1, and it increases by 1 every time you gain a level
+  
+  Elf:
+  3 Subraces (High, Wood, *Eladrin*)
+  Dark Vision
+  Keen Senses: Proficiency in Perception
+  Fey Ancestry: Advantage on saving throws against being charmed, and magic can’t put you to sleep
+  Trance: Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day
+  Ability Score Increase: Intelligence score increases by 1
+  Elf Weapon Training: Proficiency with the longsword, shortsword, shortbow, and longbow
+  (High Elf) Cantrip: Know one cantrip from the wizard spell list. Intelligence is the spellcasting ability for it
+  (Wood Elf) Fleet of Foot: Base walking speed increases to 35 feet
+  (Wood Elf) Mask of the Wild: You can attempt to hide even when you are only lightly obscured
+  (Eladrin) Fey Step: Can cast the misty step spell once. Regain the ability to do so when finishing a short or long rest
+
+  Half Elf:
+  Darkvision
+  Ability Score Increase:  Charisma score increases by 2, and two other ability scores of your choice increase by 1
+  Fey Ancestry: Advantage on saving throws against being charmed, and magic can’t put you to sleep
+  Skill Versatility: proficiency in two skills of choice
+  Languages: speak, read, and write Common, Elvish, and one extra language of choice
+
+  Half Orc:
+  Darkvision
+  Menacing: proficiency in Intimidation
+  Relentless Endurance: When HP 0 you can drop to 1 hit point instead. Resets on long rest
+  Savage Attacks: When scoring a critical hit with a melee weapon, you can roll one of the weapon’s damage dice one again and add it to the damage
+
+  Halfing:
+  2 Subraces (Lightfoot, Stout)
+  Lucky: When critically failing an attack roll, ability check, or saving throw, you can reroll the die and use the new roll
+  Brave: Advantage on saving throws against being frightened
+  Halfling Nimbleness: Can move through the space of any creature that is of a size larger than yours
+  Naturally Stealthy: Can attempt to hide even when obscured only by a creature that is at least one size larger than you
+  Stout Resilience: Advantage on saving throws against poison, and you have resistance against poison damage
+
+  Human:
+  +1 to All Ability Scores
+  Extra Language
+
+  Darkvision
+  Gnome Cunning: Advantage on all Intelligence, Wisdom, and Charisma saving throws against magic
+  Artificer’s Lore: When making a History check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus normally applyed
+  Tinker: You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
+  When you create a device, choose one of the following options:
+  Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
+  Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
+  Music Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed.
+
+  Tiefling:
+  Darkvision
+  Hellish Resistance: Resistance to fire damage
+  Infernal Legacy: You know the thaumaturgy cantrip (changes depending on the level of character. will need adjusting if character leveling is added)
+  """
+
+
+
+
+
   print("Creating racism...")
   time.sleep(0.01)
 
@@ -412,6 +484,25 @@ def generator():
   # init_plr_cls = "Warlock"                     #Only Warlock
   # init_plr_cls = "Wizard"                      #Only Wizard
   
+  """
+  Needed Additions Based On Class:
+  These skill descriptions become very large. Go look them up.
+  These are also only the skills for level 1
+  Barbarian: Saves: Strength & Constitution,Rage,  Unarmored Defense, Proficiencies, Hit Points, Equipment
+  Bard:      Saves: Dexterity & Charisma, Spellcasting, Bardic Inspiration, Proficiencies, Hit Points, Equipment
+  Cleric:    Saves: Wisdom & Charisma, Spellcasing, Divine Domain, Proficiencies, Hit Points, Equipment
+  Druid:     Saves: Intelligence & Wisdom, Druidic, Spellcasing, Proficiencies, Hit Points, Equipment
+  Fighter:   Saves: Strength & Constitution, Fighting Style, Second Wind, Proficiencies, Hit Points, Equipment
+  Monk:      Saves: Strength & Dexterity, Unarmored Defense, Martial Arts, Proficiencies, Hit Points, Equipment
+  Paladin:   Saves: Wisdom & Charisma, Divine Sense, Lay on Hands, Proficiencies, Hit Points, Equipment
+  Ranger:    Saves: Strength & Dexterity, Favored Enemy, Natural Explorer, Proficiencies, Hit Points, Equipment
+  Rogue:     Saves: Dexterity & Intelligence, Expertise, Sneak Attack, Thieves’ Cant, Proficiencies, Hit Points, Equipment
+  Sorcerer:  Saves: Constitution & Charisma, Spellcasting, Sorcerous Origin, Proficiencies, Hit Points, Equipment
+  Warlock:   Saves: Wisdom & Charisma, Otherworldly Patron, Pact Magic, Proficiencies, Hit Points, Equipment
+  Wizard:    Saves: Intelligence & Wisdom, Spellcasting, Arcane Recovery, Proficiencies, Hit Points, Equipment
+  """
+
+
   print("Going to " + init_plr_cls + " school.")
   time.sleep(0.01)
 
