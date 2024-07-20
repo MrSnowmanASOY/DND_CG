@@ -12,9 +12,9 @@ More support for class dependent stats & abilities
 \
 More Support for race dependent stats & abilities
 \
-Class dependant saving thro modifiers
+Class dependant saving throw modifiers
 \
-Support for characters of a level high than 1
+Support for characters of a level higher than 1
 \
 Rebalance or removal of character traits
 \
