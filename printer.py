@@ -91,18 +91,18 @@ try:
     file_check = open("assets/text/char_details/flaws")
     file_check = open("assets/text/char_details/good_traits")
     file_check = open("assets/text/char_details/languages")
-    file_check = open("assets/text/char_details/Lifestyle_Expenses")
-    file_check = open("assets/text/char_details/Races")
-    file_check = open("assets/text/char_details/body/Fantasy_eye_colours")
+    file_check = open("assets/text/char_details/lifestyle_expenses")
+    file_check = open("assets/text/char_details/races")
+    file_check = open("assets/text/char_details/body/fantasy_eye_colours")
     file_check = open("assets/text/char_details/body/hair_styles")
     file_check = open("assets/text/char_details/body/skin_styles")
     file_check = open("assets/text/char_details/body/skin_tone")
-    file_check = open("assets/text/char_details/body/True_eye_colours")
+    file_check = open("assets/text/char_details/body/true_eye_colours")
     file_check = open("assets/text/char_details/dragonborns/draconic_ancestrys")
     file_check = open("assets/text/char_details/dragonborns/skin_style_drag")
-    file_check = open("assets/text/char_details/naming/Female_Names")
-    file_check = open("assets/text/char_details/naming/Last_Names")
-    file_check = open("assets/text/char_details/naming/Male_Names")
+    file_check = open("assets/text/char_details/naming/female_names")
+    file_check = open("assets/text/char_details/naming/last_names")
+    file_check = open("assets/text/char_details/naming/male_names")
 except IOError:
     print(" ")
     slow_type1("File Missing...")
@@ -164,11 +164,11 @@ def generator():
 
 
   if gender == 'm':
-    m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
+    m_names = open('assets/text/char_details/naming/male_names').read().splitlines()                #Coming up with names for males
     print("Coming up with names for males...")
     time.sleep(0.01)
   elif gender == 'f':
-    f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
+    f_names = open('assets/text/char_details/naming/female_names').read().splitlines()              #Coming up with names for females
     print("Coming up with names for females...")
     time.sleep(0.01)
   else:
@@ -180,13 +180,13 @@ def generator():
     if gender == 0:
       gender = 'm'
       print(tcolors.WARNING + "Decided on Male" + tcolors.ENDC)
-      m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
+      m_names = open('assets/text/char_details/naming/male_names').read().splitlines()                #Coming up with names for males
       print("Coming up with names for males...")
       time.sleep(0.01)
     elif gender == 1:
       gender = 'f'
       print(tcolors.WARNING + "Decided on Female" + tcolors.ENDC)
-      f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
+      f_names = open('assets/text/char_details/naming/female_names').read().splitlines()              #Coming up with names for females
       print("Coming up with names for females...")
       time.sleep(0.01)
 
@@ -224,12 +224,12 @@ def generator():
       print("Decided on " + chos_alignment)
   pick_real_eyes = input("Would you like your eye colour to be realistic? (y/N): ")
   if pick_real_eyes == 'y':
-    eye_options = open('assets/text/char_details/body/True_eye_colours').read().splitlines()          #Coming up with normal eye colours
+    eye_options = open('assets/text/char_details/body/true_eye_colours').read().splitlines()          #Coming up with normal eye colours
     print("Coming up with normal eye colours...")
     chos_eye_colour = random.choice(eye_options)
     time.sleep(0.01)
   else:
-    eye_options = open('assets/text/char_details/body/Fantasy_eye_colours').read().splitlines()          #Coming up with obscure eye colours
+    eye_options = open('assets/text/char_details/body/fantasy_eye_colours').read().splitlines()          #Coming up with obscure eye colours
     print("Coming up with obscure eye colours...")
     chos_eye_colour = random.choice(eye_options)
     time.sleep(0.01)
@@ -256,10 +256,10 @@ def generator():
     fn = random.choice(f_names) 
     time.sleep(5.00)
 
-  l_names = open('assets/text/char_details/naming/Last_Names').read().splitlines()                #Thinking of last names
+  l_names = open('assets/text/char_details/naming/last_names').read().splitlines()                #Thinking of last names
   print("Thinking of last names...")
   time.sleep(0.01)
-  c_races = open('assets/text/char_details/Races').read().splitlines()                     #Looking up the list of races
+  c_races = open('assets/text/char_details/races').read().splitlines()                     #Looking up the list of races
   print("Looking up the list of races...")
   time.sleep(0.01)
   s_m_w = open('assets/text/equipment/simple_melee_weapons').read().splitlines()        #Hand crafting the simple melee weapons
@@ -280,7 +280,7 @@ def generator():
   BWs = open('assets/text/equipment/breath_weapons').read().splitlines()                #Reading up on the breath weapons
   print("Reading up on the breath weapons...")
   time.sleep(0.01)
-  LsE_cho = open('assets/text/char_details/Lifestyle_Expenses').read().splitlines()        #Giving Lifestyle choices to pick from 
+  LsE_cho = open('assets/text/char_details/lifestyle_expenses').read().splitlines()        #Giving Lifestyle choices to pick from 
   print("Giving Lifestyle choices to pick from ...")
   time.sleep(0.01)
   class_cho = open('assets/text/char_details/classes').read().splitlines()                 #Reading the classes list
@@ -437,10 +437,10 @@ def generator():
     time.sleep(0.01)
     true_hair_colours = input("Would you like your hair to be realistic colours? (y/N): ")
     if true_hair_colours == 'y':
-      hair_colour = open('assets/text/char_details/body/True_eye_colours').read().splitlines()
+      hair_colour = open('assets/text/char_details/body/true_eye_colours').read().splitlines()
       chr_hair_colour = random.choice(hair_colour)                  #Setting the hair colour
     else:
-      hair_colour = open('assets/text/char_details/body/Fantasy_eye_colours').read().splitlines()           #Coming up with hair styles
+      hair_colour = open('assets/text/char_details/body/fantasy_eye_colours').read().splitlines()           #Coming up with hair styles
       print("Coming up with hair styles...")
       chr_hair_colour = random.choice(hair_colour)                  #Setting the hair colour
 
