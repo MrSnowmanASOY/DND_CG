@@ -154,13 +154,13 @@ def get_number_input(msg, range=None, default=0):
       pass
 
 def generator():
-  gender = input("What gender is your character? (F or m): ") # selecting the gender
+  gender = input("What gender is your character? (f or m): ") # selecting the gender
   if gender.lower().startswith("m"):
     gender = "m"
   elif gender.lower().startswith("f"):
     gender = "f"
   else:
-    gender = "Truncation Error"
+    gender = "Truncation Error"  # if the given gender cant be truncated properly then the variable is set to an error and is dealt with later
 
   aogct = get_number_input(
     "How many good character traits do you want your character to have? (Def:0) (0 - 21) (1 good trait = +2 bad traits) (Rec:5): ",
@@ -176,6 +176,7 @@ def generator():
     time.sleep(0.01)
     rand_align = input("Would you like the alignment to be random? (Y/n): ")
     if rand_align == 'n':
+      print("The normal set of alignments are:")
       print("Lawful Good")
       print("Neutral good")
       print("Chaotic good")
@@ -185,6 +186,7 @@ def generator():
       print("Lawful evil")
       print("Neutral evil")
       print("Chaotic evil")
+      print("You my also enter a custom alignment.")
       chos_alignment = input("Pick an alignment (Type the one you want): ")
     else:
       chos_alignment = random.choice(alignment_cho)
@@ -236,11 +238,13 @@ def generator():
     gender = random.randint(0,1)
     if gender == 0:
       gender = 'm'
+      print("Decided on Male")
       m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
       print("Coming up with names for males...")
       time.sleep(0.01)
     elif gender == 1:
       gender = 'f'
+      print("Decided on Female")
       f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
       print("Coming up with names for females...")
       time.sleep(0.01)
@@ -283,15 +287,16 @@ def generator():
   # Randomising strs and ints
   cr = random.choice(c_races)                                   #Creating racism
 
-  # cr = "Dragonborn"                                             #Only Dragonborns
-  # cr = "Dwarf"                                                  #Only Dwarf
-  # cr = "Elf"                                                    #Only Elf
-  # cr = "Halfling"                                               #Only Halfling
-  # cr = "Human"                                                  #Only Human
-  # cr = "Gnome"                                                  #Only Gnome
-  # cr = "Half-Elf"                                               #Only Half-Elf
-  # cr = "Half-Orc"                                               #Only Half-Orc
-  # cr = "Tiefling"                                               #Only Tiefling
+  # For debugging purposes, uncomment to select
+  # cr = "Dragonborn"                                             # Only Dragonborns
+  # cr = "Dwarf"                                                  # Only Dwarf
+  # cr = "Elf"                                                    # Only Elf
+  # cr = "Halfling"                                               # Only Halfling
+  # cr = "Human"                                                  # Only Human
+  # cr = "Gnome"                                                  # Only Gnome
+  # cr = "Half-Elf"                                               # Only Half-Elf
+  # cr = "Half-Orc"                                               # Only Half-Orc
+  # cr = "Tiefling"                                               # Only Tiefling
 
   print("Creating racism...")
   time.sleep(0.01)
@@ -365,22 +370,6 @@ def generator():
 
 
 
-
-  # Allocating statuspoint numbers
-  print("Rolling weighted dice...")
-  i_Stren = random.randint(8,18)
-  time.sleep(0.01)
-  i_Dexte = random.randint(8,18)
-  time.sleep(0.01)
-  i_Const = random.randint(8,18)
-  time.sleep(0.01)
-  i_Intel = random.randint(8,18)
-  time.sleep(0.01)
-  i_Wisdo = random.randint(8,18)
-  time.sleep(0.01)
-  i_Chari = random.randint(8,18)
-  time.sleep(0.01)
-
   # calculating age
   print("Setting your body clock...")
   if cr == 'Dragonborn':
@@ -423,7 +412,7 @@ def generator():
   # init_plr_cls = "Warlock"                     #Only Warlock
   # init_plr_cls = "Wizard"                      #Only Wizard
   
-  print("Deciding on a class...")
+  print("Going to " + init_plr_cls + " school.")
   time.sleep(0.01)
 
 
@@ -440,7 +429,6 @@ def generator():
     spells = 2
     cho_cantrips = random.choices(opt_cantrips, k=cantrips)
     cho_spells = random.choices(opt_spells, k=spells)
-
   else:
     pass
 
@@ -515,25 +503,26 @@ def generator():
 
 
   # Calculating how tall the player is
+  rand_h = random.randint(-1,1)
   print("Seeing how tall you are...")
   if cr == 'Dwarf':
-    height = random.randint(30,50)/10
+    height = (random.randint(30,50)/10)+(rand_h/10)
   if cr == 'Elf':
-    height = random.randint(30,61)/10
+    height = (random.randint(30,61)/10)+(rand_h/10)
   if cr == 'Halfling':
-    height = random.randint(28,34)/10
+    height = (random.randint(28,34)/10)+(rand_h/10)
   if cr == 'Human':
-    height = random.randint(10,100)/10
+    height = (random.randint(10,100)/10)+(rand_h/10)
   if cr == 'Dragonborn':
-    height = random.randint(30,70)/10
+    height = (random.randint(30,70)/10)+(rand_h/10)
   if cr == 'Gnome':
-    height = random.randint(30,40)/10
+    height = (random.randint(30,40)/10)+(rand_h/10)
   if cr == 'Half-Elf':
-    height = random.randint(40,60)/10
+    height = (random.randint(40,60)/10)+(rand_h/10)
   if cr == 'Half-Orc':
-    height = random.randint(59,64)/10
+    height = (random.randint(59,64)/10)+(rand_h/10)
   if cr == 'Tiefling':
-    height = random.randint(56,62)/10
+    height = (random.randint(56,62)/10)+(rand_h/10)
 
 
 
@@ -554,9 +543,26 @@ def generator():
     plr_gp = random.randint(3,12) * 10
 
 
-  # Calculating str based things
+  # Allocating initial statuspoint numbers
+  print("Rolling weighted dice...")
+  i_Stren = random.randint(8,18)
+  time.sleep(0.01)
+  i_Dexte = random.randint(8,18)
+  time.sleep(0.01)
+  i_Const = random.randint(8,18)
+  time.sleep(0.01)
+  i_Intel = random.randint(8,18)
+  time.sleep(0.01)
+  i_Wisdo = random.randint(8,18)
+  time.sleep(0.01)
+  i_Chari = random.randint(8,18)
+  time.sleep(0.01)
+
+
   time.sleep(0.01)
   print("Calculating your modifiers...")
+  # ──────────────────────────────────
+  # Calculating str based things
   # ────────────────────────────────── Str Modifier
   if cr == 'Dragonborn':
     i_Stren = i_Stren + 2
@@ -661,7 +667,7 @@ def generator():
 
 
 
-  # Calculating statuspoints based on race, items, ect.
+  # Calculating final statuspoints based on race, items, ect.
   f_Stren = i_Stren
   f_Dexte = i_Dexte
   f_Const = i_Const
@@ -671,12 +677,12 @@ def generator():
 
   prof_bon = 2
 
-  Stren_save = str_m + prof_bon
-  Dexte_save = dex_m + prof_bon
-  Const_save = con_m + prof_bon
-  Intel_save = int_m + prof_bon
-  Wisdo_save = wis_m + prof_bon
-  Chari_save = cha_m + prof_bon
+  Stren_save = str_m # + prof_bon    |    I dont know what I was thinking here but this needs to be changed, Saves are dependant on classes in most cases and are not just a blanket addition.
+  Dexte_save = dex_m # + prof_bon    |    I dont know what I was thinking here but this needs to be changed, Saves are dependant on classes in most cases and are not just a blanket addition.
+  Const_save = con_m # + prof_bon    |    I dont know what I was thinking here but this needs to be changed, Saves are dependant on classes in most cases and are not just a blanket addition.
+  Intel_save = int_m # + prof_bon    |    I dont know what I was thinking here but this needs to be changed, Saves are dependant on classes in most cases and are not just a blanket addition.
+  Wisdo_save = wis_m # + prof_bon    |    I dont know what I was thinking here but this needs to be changed, Saves are dependant on classes in most cases and are not just a blanket addition.
+  Chari_save = cha_m # + prof_bon    |    I dont know what I was thinking here but this needs to be changed, Saves are dependant on classes in most cases and are not just a blanket addition.
 
   #Finding the classes hit die
   
@@ -692,6 +698,10 @@ def generator():
 
   # Calculating HP
 
+  """
+  This system will only work for level 1 characters
+  If I want to generate a character of a higher level I will need to change this system
+  """
   if init_plr_cls == "Barbarian":
     chr_HP = con_m + 12
   if init_plr_cls == "Ranger" or "Paladin" or "Fighter":
@@ -700,6 +710,7 @@ def generator():
     chr_HP = con_m + 8
   if init_plr_cls == "Sorcerer" or "Wizard":
     chr_HP = con_m + 6
+
 
   # Finding good character traits
   if aogct != 0:
@@ -746,13 +757,20 @@ def generator():
   elif aogct == 0:
     pass
 
+  """
+  The good and bad character traits can be very inbalanced 
+  and since they are randomly selected they can contradict each other (blind, deaf, and scared of mirrors)
+  """
+
   print("Making Character sheet...")
 
   pp = 10 + wis_m
   armor_class = 10 + dex_m
 
   """
-  want to make a system here that checks ability rolls for more than one 9 or <
+  I want to make a system here that checks ability rolls for more than one 9 or < and then rerolls if needed
+  Asking the player if they would like to select which ability to reroll would be nice but they dont get to
+  pick which stats are focused on in the first place so that whole system would need a rework.
   """
 
 
