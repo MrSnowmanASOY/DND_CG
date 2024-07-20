@@ -162,6 +162,35 @@ def generator():
   else:
     gender = "Truncation Error"  # if the given gender cant be truncated properly then the variable is set to an error and is dealt with later
 
+
+  if gender == 'm':
+    m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
+    print("Coming up with names for males...")
+    time.sleep(0.01)
+  elif gender == 'f':
+    f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
+    print("Coming up with names for females...")
+    time.sleep(0.01)
+  else:
+    print(tcolors.FAIL + "Error Retrieving Gender Selection" + tcolors.ENDC)
+    print(tcolors.FAIL + gender + tcolors.ENDC)
+    print(tcolors.WARNING + "Randomising Gender" + tcolors.ENDC)
+    time.sleep(1.00)
+    gender = random.randint(0,1)
+    if gender == 0:
+      gender = 'm'
+      print(tcolors.WARNING + "Decided on Male" + tcolors.ENDC)
+      m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
+      print("Coming up with names for males...")
+      time.sleep(0.01)
+    elif gender == 1:
+      gender = 'f'
+      print(tcolors.WARNING + "Decided on Female" + tcolors.ENDC)
+      f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
+      print("Coming up with names for females...")
+      time.sleep(0.01)
+
+
   aogct = get_number_input(
     "How many good character traits do you want your character to have? (Def:0) (0 - 21) (1 good trait = +2 bad traits) (Rec:5): ",
     (0, 21)
@@ -208,46 +237,26 @@ def generator():
   
 
 
-  # importing files
-  skin_choice_texture_drag = open('assets/text/char_details/dragonborns/skin_style_drag').read().splitlines()   #Taking notes on dragonborns...
-  print("Taking notes on dragonborns...")
-  skin_choice_colour = open('assets/text/char_details/body/skin_tone').read().splitlines()      #Looking at people
-  print("Looking at people...")
-  time.sleep(0.01)
-  skin_choice_texture = open('assets/text/char_details/body/skin_styles').read().splitlines()   #Feeling people
-  print("Feeling people...")
-  time.sleep(0.01)
   instaled_languages = open('assets/text/char_details/languages').read().splitlines()      #Studying languages
   print("Studying languages...")
   time.sleep(0.01)
 
   
+
   if gender == 'm':
-    m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
-    print("Coming up with names for males...")
+    mn = random.choice(m_names)                                     #Choosing cool male name
+    print("Choosing cool male name...")
     time.sleep(0.01)
   elif gender == 'f':
-    f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
-    print("Coming up with names for females...")
+    fn = random.choice(f_names)                                     #Choosing a pretty female name
+    print("Choosing a pretty female name...")
     time.sleep(0.01)
   else:
-    print(tcolors.WARNING + "Error Retreiving Gender Selection" + tcolors.ENDC)
-    print(tcolors.WARNING + gender + tcolors.ENDC)
-    print(tcolors.WARNING + "Randomising Gender" + tcolors.ENDC)
-    time.sleep(3.00)
-    gender = random.randint(0,1)
-    if gender == 0:
-      gender = 'm'
-      print("Decided on Male")
-      m_names = open('assets/text/char_details/naming/Male_Names').read().splitlines()                #Coming up with names for males
-      print("Coming up with names for males...")
-      time.sleep(0.01)
-    elif gender == 1:
-      gender = 'f'
-      print("Decided on Female")
-      f_names = open('assets/text/char_details/naming/Female_Names').read().splitlines()              #Coming up with names for females
-      print("Coming up with names for females...")
-      time.sleep(0.01)
+    print(tcolors.FAIL + "Error Retreiving Chosen Gender" + tcolors.ENDC)
+    print(tcolors.FAIL + gender + tcolors.ENDC)
+    print(tcolors.FAIL + "Defaulting to Female" + tcolors.ENDC)
+    fn = random.choice(f_names) 
+    time.sleep(5.00)
 
   l_names = open('assets/text/char_details/naming/Last_Names').read().splitlines()                #Thinking of last names
   print("Thinking of last names...")
@@ -301,7 +310,7 @@ def generator():
   """
   Needed Additions Based on Race:
   Dragon Borns:
-  Dragon Borns Have a damage resistance based on their ancestory
+  Dragon Borns Have a damage resistance based on their ancestry
 
   Dwarfs:
   2 Subraces (Mountain, Hill)
@@ -353,7 +362,7 @@ def generator():
 
   Darkvision
   Gnome Cunning: Advantage on all Intelligence, Wisdom, and Charisma saving throws against magic
-  Artificer’s Lore: When making a History check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus normally applyed
+  Artificer’s Lore: When making a History check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus normally applied
   Tinker: You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
   When you create a device, choose one of the following options:
   Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
@@ -367,26 +376,23 @@ def generator():
   """
 
 
-
-
-
   print("Creating racism...")
   time.sleep(0.01)
 
-  if gender == 'm':
-    mn = random.choice(m_names)                                     #Choosing cool male name
-    print("Choosing cool male name...")
-    time.sleep(0.01)
-  elif gender == 'f':
-    fn = random.choice(f_names)                                     #Choosing an okay female name
-    print("Choosing an okay female name...")
-    time.sleep(0.01)
+
+  # importing body details
+  if cr == 'Dragonborn':
+    skin_choice_texture_drag = open('assets/text/char_details/dragonborns/skin_style_drag').read().splitlines()   #Taking notes on dragonborns...
+    print("Taking notes on dragonborns...")
   else:
-    print(tcolors.FAIL + "Error Retreiving Chosen Gender" + tcolors.ENDC)
-    print(tcolors.FAIL + gender + tcolors.ENDC)
-    print(tcolors.FAIL + "Defaulting to Female" + tcolors.ENDC)
-    fn = random.choice(f_names) 
-    time.sleep(5.00)
+    skin_choice_colour = open('assets/text/char_details/body/skin_tone').read().splitlines()      #Looking at people
+    print("Looking at people...")
+  time.sleep(0.01)
+  skin_choice_texture = open('assets/text/char_details/body/skin_styles').read().splitlines()   #Feeling people
+  print("Feeling people...")
+  time.sleep(0.01)
+
+
 
 
   ln = random.choice(l_names)                                     #Picking an epic last name
@@ -495,7 +501,7 @@ def generator():
   Fighter:   Saves: Strength & Constitution, Fighting Style, Second Wind, Proficiencies, Hit Points, Equipment
   Monk:      Saves: Strength & Dexterity, Unarmored Defense, Martial Arts, Proficiencies, Hit Points, Equipment
   Paladin:   Saves: Wisdom & Charisma, Divine Sense, Lay on Hands, Proficiencies, Hit Points, Equipment
-  Ranger:    Saves: Strength & Dexterity, Favored Enemy, Natural Explorer, Proficiencies, Hit Points, Equipment
+  Ranger:    Saves: Strength & Dexterity, Favoured Enemy, Natural Explorer, Proficiencies, Hit Points, Equipment
   Rogue:     Saves: Dexterity & Intelligence, Expertise, Sneak Attack, Thieves’ Cant, Proficiencies, Hit Points, Equipment
   Sorcerer:  Saves: Constitution & Charisma, Spellcasting, Sorcerous Origin, Proficiencies, Hit Points, Equipment
   Warlock:   Saves: Wisdom & Charisma, Otherworldly Patron, Pact Magic, Proficiencies, Hit Points, Equipment
@@ -594,7 +600,7 @@ def generator():
 
 
   # Calculating how tall the player is
-  rand_h = random.randint(-1,1)
+  rand_h = random.choice([-1, 1])
   print("Seeing how tall you are...")
   if cr == 'Dwarf':
     height = (random.randint(30,50)/10)+(rand_h/10)
@@ -849,7 +855,7 @@ def generator():
     pass
 
   """
-  The good and bad character traits can be very inbalanced 
+  The good and bad character traits can be very imbalanced 
   and since they are randomly selected they can contradict each other (blind, deaf, and scared of mirrors)
   """
 
@@ -894,7 +900,7 @@ def generator():
   print("Character age: " + str(age))
   print("Eye colour: " + (chos_eye_colour))
   print("Initiative: +" + str(dex_m))
-  print("Movment speed: 30")
+  print("Movement speed: 30")
   print("Spoken Languages: " + str(Spoken_Languages))
   print("Hair style: " + str(chr_hair_style))
   print("Hair colour: " + str(chr_hair_colour))
