@@ -241,8 +241,6 @@ def generator():
   print("Studying languages...")
   time.sleep(0.01)
 
-  
-
   if gender == 'm':
     mn = random.choice(m_names)                                     #Choosing cool male name
     print("Choosing cool male name...")
@@ -963,13 +961,15 @@ def generator():
   print("──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────")
   print("Weapons")
   print("Name                     - 	Damage 	                 -     Properties")
-  if simple_weapons == '1':
+  if simple_weapons == 1:
     print(smw1)
     print(smw2)
     print(srw1)
-  elif simple_weapons == '0':
+  elif simple_weapons == 0:
     print(mmw1)
     print(mrw1)
+  else:
+    print(tcolors.FAIL + "Error Retrieving Weapon Set Type" + tcolors.ENDC)
   if cda == 'Fire':
     print("Breath Weapon (Fire)     -     2d6                          -  1 use per long rest, Burns creatures  ")
   elif cda == 'Frost':
